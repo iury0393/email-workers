@@ -12,3 +12,11 @@ services:
       #Scripts
       - ./scripts:/scripts
       - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+  frontend:
+    image: nginx:1.13
+    container_name: frontend
+    volumes: 
+      #Site
+      - ./web:/usr/share/nginx/html/
+    ports: 
+      - 80:80
